@@ -130,6 +130,8 @@
 		6F72C18D19762F6700100D12 /* NameValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72C18C19762F6700100D12 /* NameValue.m */; };
 		6F72C1901976312800100D12 /* DynamicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72C18F1976312800100D12 /* DynamicButton.m */; };
 		6F72C1921976644700100D12 /* points_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F72C1911976644700100D12 /* points_blue@2x.png */; };
+		6F72C1961976831900100D12 /* PaymentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72C1951976831900100D12 /* PaymentButton.m */; };
+		6F72C1981976889C00100D12 /* rmb_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F72C1971976889C00100D12 /* rmb_blue@2x.png */; };
 		6F74E1D01949EE7F00C7E3D6 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F74E1CF1949EE7F00C7E3D6 /* Account.m */; };
 		6F75A53A1957FE7700E4FE52 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F12F37E195020C500B47132 /* MapKit.framework */; };
 		6F75A541195800EA00E4FE52 /* DomobOfferWallBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F75A53D195800EA00E4FE52 /* DomobOfferWallBundle.bundle */; };
@@ -481,6 +483,9 @@
 		6F72C18E1976312800100D12 /* DynamicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicButton.h; sourceTree = "<group>"; };
 		6F72C18F1976312800100D12 /* DynamicButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicButton.m; sourceTree = "<group>"; };
 		6F72C1911976644700100D12 /* points_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points_blue@2x.png"; sourceTree = "<group>"; };
+		6F72C1941976831900100D12 /* PaymentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentButton.h; sourceTree = "<group>"; };
+		6F72C1951976831900100D12 /* PaymentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentButton.m; sourceTree = "<group>"; };
+		6F72C1971976889C00100D12 /* rmb_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rmb_blue@2x.png"; sourceTree = "<group>"; };
 		6F74E1CE1949EE7F00C7E3D6 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		6F74E1CF1949EE7F00C7E3D6 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		6F75A5231957F85E00E4FE52 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -1096,6 +1101,15 @@
 			name = group_button;
 			sourceTree = "<group>";
 		};
+		6F72C1931976830A00100D12 /* image_button */ = {
+			isa = PBXGroup;
+			children = (
+				6F72C1941976831900100D12 /* PaymentButton.h */,
+				6F72C1951976831900100D12 /* PaymentButton.m */,
+			);
+			name = image_button;
+			sourceTree = "<group>";
+		};
 		6F75A53B1957FF7600E4FE52 /* domob */ = {
 			isa = PBXGroup;
 			children = (
@@ -1515,6 +1529,7 @@
 		6FF53328193860E4001D607C /* component */ = {
 			isa = PBXGroup;
 			children = (
+				6F72C1931976830A00100D12 /* image_button */,
 				6F72C18619762DA100100D12 /* group_button */,
 				6F50BF2F196BCF2A006C9F1F /* images_scroll_view */,
 				6F0177C1196A4DB8003DD9E3 /* progress_view */,
@@ -1633,6 +1648,7 @@
 				6FBE92901941BABE00B94195 /* shopping_cart@2x.png */,
 				6F363314193F18F700340645 /* icon_shopping_cart@2x.png */,
 				6F72C1911976644700100D12 /* points_blue@2x.png */,
+				6F72C1971976889C00100D12 /* rmb_blue@2x.png */,
 			);
 			name = image;
 			sourceTree = "<group>";
@@ -1762,6 +1778,7 @@
 				6FBB6B8C1973B85600E6C7D2 /* mi_repo@2x.png in Resources */,
 				6FE655A11942D42C009617C9 /* 1.jpg in Resources */,
 				6F12F363194FE9F700B47132 /* icon_experience@2x.png in Resources */,
+				6F72C1981976889C00100D12 /* rmb_blue@2x.png in Resources */,
 				6F50BF2E196B9F25006C9F1F /* bg2@2x.png in Resources */,
 				6F7657ED19345C7C003BF61C /* InfoPlist.strings in Resources */,
 				6F12F38F195151CD00B47132 /* PunchBoxAdRes.bundle in Resources */,
@@ -1891,6 +1908,7 @@
 				6F363311193F039700340645 /* MerchandiseTableViewCell.m in Sources */,
 				6FF5333A1938657A001D607C /* UIColor+App.m in Sources */,
 				6F72C18D19762F6700100D12 /* NameValue.m in Sources */,
+				6F72C1961976831900100D12 /* PaymentButton.m in Sources */,
 				6F2C52B21974F6560045BFC1 /* MerchandiseProperty.m in Sources */,
 				6F72A3DD193DB54A001DAA3E /* DrawerItemView.m in Sources */,
 				6F41897C1948587B00F9DC2C /* CheckBox.m in Sources */,

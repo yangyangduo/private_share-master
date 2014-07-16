@@ -11,7 +11,7 @@
 
 #define WIDTH  24
 #define HEIGHT 24
-#define TEXT_WIDTH 40
+#define TEXT_WIDTH 34
 
 @implementation NumberPicker {
     UIButton *btnAddition;

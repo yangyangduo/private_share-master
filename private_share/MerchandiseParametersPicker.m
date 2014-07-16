@@ -21,7 +21,7 @@
 @synthesize merchandise = _merchandise_;
 
 + (instancetype)pickerWithMerchandise:(Merchandise *)merchandise {
-    MerchandiseParametersPicker *picker = [[MerchandiseParametersPicker alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 400) merchandise:merchandise];
+    MerchandiseParametersPicker *picker = [[MerchandiseParametersPicker alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 550) merchandise:merchandise];
     return picker;
 }
 
@@ -63,12 +63,21 @@
         if(_merchandise_.properties != nil) {
             for(int i=0; i<_merchandise_.properties.count; i++) {
                 MerchandiseProperty *property = [_merchandise_.properties objectAtIndex:i];
+                
+                UILabel *propertyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, lastY, 300, 30)];
+                propertyLabel.text = property.name;
+                propertyLabel.textColor = [UIColor darkGrayColor];
+                [self addSubview:propertyLabel];
+                lastY += propertyLabel.bounds.size.height + 2;
+                
+                [self addSubview:[self lineViewWithX:10 y:lastY]];
+                lastY += 11.f;
+                
                 if(property.values != nil) {
                     NSMutableArray *propertyValues = [NSMutableArray array];
                     for(int j=0; j<property.values.count; j++) {
                         [propertyValues addObject:[[NameValue alloc] initWithName:[property.values objectAtIndex:j] value:nil]];
                     }
-                    
                     DynamicGroupButtonView *groupButtonView = [DynamicGroupButtonView dynamicGroupButtonViewWithPoint:CGPointMake(0, lastY) nameValues:propertyValues];
                     groupButtonView.identifier = property.name;
                     groupButtonView.delegate = self;
@@ -79,15 +88,53 @@
             }
         }
         
-        NumberPicker *numberPicker = [NumberPicker numberPickerWithPoint:CGPointMake(100, lastY) defaultValue:1 direction:NumberPickerDirectionHorizontal];
+        UILabel *exchangeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, lastY, 100, 30)];
+        exchangeLabel.textColor = [UIColor darkGrayColor];
+        exchangeLabel.text = NSLocalizedString(@"exchange_type", @"");
+        [self addSubview:exchangeLabel];
+        
+        lastY += exchangeLabel.bounds.size.height + 2.f;
+        [self addSubview:[self lineViewWithX:10 y:lastY]];
+        lastY += 11.f;
+        
+        
+        [self addSubview:[self lineViewWithX:10 y:lastY]];
+        lastY += 11.f;
+        
+        UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, lastY, 100, 30)];
+        numberLabel.textColor = [UIColor darkGrayColor];
+        numberLabel.text = NSLocalizedString(@"purchase_number", @"");
+        [self addSubview:numberLabel];
+        
+        NumberPicker *numberPicker = [NumberPicker numberPickerWithPoint:CGPointMake(225, lastY) defaultValue:1 direction:NumberPickerDirectionHorizontal];
+        numberPicker.center = CGPointMake(numberPicker.center.x, numberLabel.center.y);
         [self addSubview:numberPicker];
+        
+        lastY += numberLabel.bounds.size.height + 11.f;
+        
+        [self addSubview:[self lineViewWithY:lastY]];
+        lastY += 11.f;
+        
+        UIButton *purchaseButton = [[UIButton alloc] initWithFrame:CGRectMake(100, lastY, 120, 30)];
+        purchaseButton.backgroundColor = [UIColor blueColor];
+        [purchaseButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [purchaseButton setTitle:NSLocalizedString(@"determine", @"") forState:UIControlStateNormal];
+        [self addSubview:purchaseButton];
+        
+        lastY += purchaseButton.bounds.size.height;
     }
     return self;
 }
 
 - (UIView *)lineViewWithY:(CGFloat)y {
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, y, self.bounds.size.width, 0.5f)];
-    line.backgroundColor = [UIColor grayColor];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, y, self.bounds.size.width, 1.f)];
+    line.backgroundColor = [UIColor colorWithRed:229.f / 255.f green:229.f / 255.f blue:229.f / 255.f alpha:1.0f];
+    return line;
+}
+
+- (UIView *)lineViewWithX:(CGFloat)x y:(CGFloat)y {
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(x, y, self.bounds.size.width - x, 1.f)];
+    line.backgroundColor = [UIColor colorWithRed:229.f / 255.f green:229.f / 255.f blue:229.f / 255.f alpha:1.0f];
     return line;
 }
 

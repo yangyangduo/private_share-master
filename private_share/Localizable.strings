@@ -141,6 +141,8 @@
 "chicked_recommend"                    =     "小吉推荐";
 "all_merchandises"                     =     "全部商品";
 "has_exchanges"                        =     "人已兑换";
+"purchase_number"                      =     "购买数量";
+"exchange_type"                        =     "兑换方式";
 
 
 "earn_record"                          =     "赚取记录";

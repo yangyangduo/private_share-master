@@ -102,7 +102,6 @@
     [htmlView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/merchandises/%@", kBaseUrl, _merchandise_.identifier]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.f]];
 }
 
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [pullImagesView pullScrollViewDidScroll:scrollView];
 }

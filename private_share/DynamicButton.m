@@ -8,23 +8,17 @@
 
 #import "DynamicButton.h"
 
-#define MIN_WIDTH 45.f
-
 @implementation DynamicButton
 
 @synthesize nameValue = _nameValue_;
 
-- (instancetype)initWithNameValue:(NameValue *)nameValue {
-    CGSize fontSize = [nameValue.name sizeWithFont:[UIFont systemFontOfSize:14.f]];
-    NSLog(@"%f  %f", fontSize.width, fontSize.height);
-    self = [super initWithFrame:CGRectMake(0, 0, fontSize.width, 30)];
+- (instancetype)initWithFrame:(CGRect)frame nameValue:(NameValue *)nameValue {
+    self = [super initWithFrame:frame];
     if(self) {
-        
-        
-        self.titleLabel.font = [UIFont systemFontOfSize:14.f];
-        [self setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-        self.backgroundColor = [UIColor redColor];
-        [self setTitle:nameValue.name forState:UIControlStateNormal];
+        _nameValue_ = nameValue;
+        [self setTitle:_nameValue_.name forState:UIControlStateNormal];
+        self.layer.borderWidth = 1.f;
+        self.layer.cornerRadius = 4;
     }
     return self;
 }

@@ -52,7 +52,6 @@
 		6F2C52AC1974D3850045BFC1 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2C52AB1974D3850045BFC1 /* PopupView.m */; };
 		6F2C52AF1974D4780045BFC1 /* MerchandiseParametersPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2C52AE1974D4780045BFC1 /* MerchandiseParametersPicker.m */; };
 		6F2C52B21974F6560045BFC1 /* MerchandiseProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2C52B11974F6560045BFC1 /* MerchandiseProperty.m */; };
-		6F2C52B41975078E0045BFC1 /* points_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2C52B31975078E0045BFC1 /* points_orange@2x.png */; };
 		6F2C52C019751D2C0045BFC1 /* guide1-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2C52B619751D2C0045BFC1 /* guide1-568h@2x.png */; };
 		6F2C52C119751D2C0045BFC1 /* guide1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2C52B719751D2C0045BFC1 /* guide1@2x.png */; };
 		6F2C52C219751D2C0045BFC1 /* guide2-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2C52B819751D2C0045BFC1 /* guide2-568h@2x.png */; };
@@ -127,9 +126,10 @@
 		6F72A3F6193E17E3001DAA3E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72A3F5193E17E3001DAA3E /* LoginViewController.m */; };
 		6F72A3F9193E1EC2001DAA3E /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72A3F8193E1EC2001DAA3E /* RegisterViewController.m */; };
 		6F72A3FC193E1ED2001DAA3E /* PasswordForgotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72A3FB193E1ED2001DAA3E /* PasswordForgotViewController.m */; };
-		6F72C18919762DD200100D12 /* DynamicGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72C18819762DD200100D12 /* DynamicGroupButton.m */; };
+		6F72C18919762DD200100D12 /* DynamicGroupButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72C18819762DD200100D12 /* DynamicGroupButtonView.m */; };
 		6F72C18D19762F6700100D12 /* NameValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72C18C19762F6700100D12 /* NameValue.m */; };
 		6F72C1901976312800100D12 /* DynamicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72C18F1976312800100D12 /* DynamicButton.m */; };
+		6F72C1921976644700100D12 /* points_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F72C1911976644700100D12 /* points_blue@2x.png */; };
 		6F74E1D01949EE7F00C7E3D6 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F74E1CF1949EE7F00C7E3D6 /* Account.m */; };
 		6F75A53A1957FE7700E4FE52 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F12F37E195020C500B47132 /* MapKit.framework */; };
 		6F75A541195800EA00E4FE52 /* DomobOfferWallBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F75A53D195800EA00E4FE52 /* DomobOfferWallBundle.bundle */; };
@@ -350,7 +350,6 @@
 		6F2C52AE1974D4780045BFC1 /* MerchandiseParametersPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseParametersPicker.m; sourceTree = "<group>"; };
 		6F2C52B01974F6560045BFC1 /* MerchandiseProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchandiseProperty.h; sourceTree = "<group>"; };
 		6F2C52B11974F6560045BFC1 /* MerchandiseProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseProperty.m; sourceTree = "<group>"; };
-		6F2C52B31975078E0045BFC1 /* points_orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points_orange@2x.png"; sourceTree = "<group>"; };
 		6F2C52B619751D2C0045BFC1 /* guide1-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide1-568h@2x.png"; sourceTree = "<group>"; };
 		6F2C52B719751D2C0045BFC1 /* guide1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide1@2x.png"; sourceTree = "<group>"; };
 		6F2C52B819751D2C0045BFC1 /* guide2-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide2-568h@2x.png"; sourceTree = "<group>"; };
@@ -475,12 +474,13 @@
 		6F72A3F8193E1EC2001DAA3E /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		6F72A3FA193E1ED2001DAA3E /* PasswordForgotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordForgotViewController.h; sourceTree = "<group>"; };
 		6F72A3FB193E1ED2001DAA3E /* PasswordForgotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordForgotViewController.m; sourceTree = "<group>"; };
-		6F72C18719762DD200100D12 /* DynamicGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicGroupButton.h; sourceTree = "<group>"; };
-		6F72C18819762DD200100D12 /* DynamicGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicGroupButton.m; sourceTree = "<group>"; };
+		6F72C18719762DD200100D12 /* DynamicGroupButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicGroupButtonView.h; sourceTree = "<group>"; };
+		6F72C18819762DD200100D12 /* DynamicGroupButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicGroupButtonView.m; sourceTree = "<group>"; };
 		6F72C18B19762F6700100D12 /* NameValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameValue.h; sourceTree = "<group>"; };
 		6F72C18C19762F6700100D12 /* NameValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameValue.m; sourceTree = "<group>"; };
 		6F72C18E1976312800100D12 /* DynamicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicButton.h; sourceTree = "<group>"; };
 		6F72C18F1976312800100D12 /* DynamicButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicButton.m; sourceTree = "<group>"; };
+		6F72C1911976644700100D12 /* points_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points_blue@2x.png"; sourceTree = "<group>"; };
 		6F74E1CE1949EE7F00C7E3D6 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		6F74E1CF1949EE7F00C7E3D6 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		6F75A5231957F85E00E4FE52 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -1088,8 +1088,8 @@
 		6F72C18619762DA100100D12 /* group_button */ = {
 			isa = PBXGroup;
 			children = (
-				6F72C18719762DD200100D12 /* DynamicGroupButton.h */,
-				6F72C18819762DD200100D12 /* DynamicGroupButton.m */,
+				6F72C18719762DD200100D12 /* DynamicGroupButtonView.h */,
+				6F72C18819762DD200100D12 /* DynamicGroupButtonView.m */,
 				6F72C18E1976312800100D12 /* DynamicButton.h */,
 				6F72C18F1976312800100D12 /* DynamicButton.m */,
 			);
@@ -1632,7 +1632,7 @@
 				6FF5333F19387D26001D607C /* btn_menu@2x.png */,
 				6FBE92901941BABE00B94195 /* shopping_cart@2x.png */,
 				6F363314193F18F700340645 /* icon_shopping_cart@2x.png */,
-				6F2C52B31975078E0045BFC1 /* points_orange@2x.png */,
+				6F72C1911976644700100D12 /* points_blue@2x.png */,
 			);
 			name = image;
 			sourceTree = "<group>";
@@ -1739,13 +1739,13 @@
 				6F3F65EC1942020F007A41E0 /* radio_selected@2x.png in Resources */,
 				6F7BD3281953F8A00031D2DD /* bg_scanner_view@2x.png in Resources */,
 				6FBB6B891973AD2500E6C7D2 /* icon29.png in Resources */,
+				6F72C1921976644700100D12 /* points_blue@2x.png in Resources */,
 				6FB714D6196E5F4800598457 /* invitation@2x.png in Resources */,
 				6F726B4C196CDEC900875B05 /* logo@2x.png in Resources */,
 				6F66B5A6194AE17A008A948C /* icon_contact@2x.png in Resources */,
 				6FBB6B961973D3A200E6C7D2 /* portal@2x.png in Resources */,
 				6FE6559F1942BFA3009617C9 /* 4.jpg in Resources */,
 				6F3F65ED1942020F007A41E0 /* radio@2x.png in Resources */,
-				6F2C52B41975078E0045BFC1 /* points_orange@2x.png in Resources */,
 				6FE6559E1942BFA3009617C9 /* 3.jpg in Resources */,
 				6FB714D8196E5F4800598457 /* my_mall@2x.png in Resources */,
 				6F12F360194FE48F00B47132 /* level1@2x.png in Resources */,
@@ -1980,7 +1980,7 @@
 				6F8D84CE19455A7E00D1D123 /* ShoppingCartHeaderTitleView.m in Sources */,
 				6DD5676E4C2E11196167B914 /* UIDevice+SystemVersion.m in Sources */,
 				6F97097F193F4E0000EA5E3A /* NSDictionary+Extension.m in Sources */,
-				6F72C18919762DD200100D12 /* DynamicGroupButton.m in Sources */,
+				6F72C18919762DD200100D12 /* DynamicGroupButtonView.m in Sources */,
 				6F2BD0B4194C51670092BA23 /* OrderFooterView.m in Sources */,
 				6F8823D11940531F00757633 /* LoadMoreTableFooterView.m in Sources */,
 			);

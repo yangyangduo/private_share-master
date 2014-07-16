@@ -105,7 +105,7 @@
     } else {
         lblNumber = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH, 0, TEXT_WIDTH, HEIGHT)];
     }
-    lblNumber.textColor = [UIColor orangeColor];
+    lblNumber.textColor = [UIColor appColor];
     lblNumber.textAlignment = NSTextAlignmentCenter;
     lblNumber.font = [UIFont systemFontOfSize:18.f];
     lblNumber.backgroundColor = [UIColor clearColor];

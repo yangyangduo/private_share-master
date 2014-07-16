@@ -13,6 +13,6 @@
 
 @property (nonatomic, strong) NameValue *nameValue;
 
-- (instancetype)initWithNameValue:(NameValue *)nameValue;
+- (instancetype)initWithFrame:(CGRect)frame nameValue:(NameValue *)nameValue;
 
 @end

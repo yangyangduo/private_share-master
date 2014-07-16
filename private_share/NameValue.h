@@ -10,9 +10,11 @@
 
 @interface NameValue : NSObject
 
+@property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) id value;
 
+- (instancetype)initWithIdentifier:(NSString *)identifier name:(NSString *)name value:(NSString *)value;
 - (instancetype)initWithName:(NSString *)name value:(id)value;
 
 @end

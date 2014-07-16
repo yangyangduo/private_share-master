@@ -21,6 +21,8 @@
 @synthesize shortDescription;
 @synthesize returnPoints;
 
+@synthesize properties;
+
 @synthesize follows;
 @synthesize startTime;
 @synthesize endTime;
@@ -52,6 +54,17 @@
         if(_address_ != nil) {
             self.address = [[Address alloc] initWithDictionary:_address_];
         }
+        
+        NSMutableArray *propers = [NSMutableArray array];
+        NSArray *_properties_ = [dictionary arrayForKey:@"properties"];
+        if(_properties_ != nil) {
+            for(int i=0; i<_properties_.count; i++) {
+                NSDictionary *property = [_properties_ objectAtIndex:i];
+                MerchandiseProperty *mProperty = [[MerchandiseProperty alloc] initWithDictionary:property];
+                [propers addObject:mProperty];
+            }
+        }
+        self.properties = propers;
     }
     return self;
 }

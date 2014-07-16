@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseModel.h"
+#import "MerchandiseProperty.h"
 #import "Address.h"
 
 @interface Merchandise : BaseModel
@@ -30,6 +31,8 @@
 @property (nonatomic, strong) NSDate *buyStartTime;
 @property (nonatomic, strong) NSDate *buyEndTime;
 @property (nonatomic, strong) Address *address;
+
+@property (nonatomic, strong) NSArray *properties;
 
 - (NSString *)firstImageUrl;
 

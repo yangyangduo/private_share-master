@@ -132,7 +132,7 @@ CGFloat const kPullImageBottomViewHeight = 30.f;
 }
 
 - (void)recalculatedPageIndex {
-    _pageIndex_ = imagesScrollView.contentOffset.x / imagesScrollView.bounds.size.width;
+    _pageIndex_ = floor(imagesScrollView.contentOffset.x) / floor(imagesScrollView.bounds.size.width);
     if(self.delegate != nil) {
         [self.delegate pullScrollZoomImagesView:self imagesPageIndexChangedTo:_pageIndex_];
     }

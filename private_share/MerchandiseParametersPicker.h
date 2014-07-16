@@ -8,6 +8,7 @@
 
 #import "PopupView.h"
 #import "Merchandise.h"
+#import "MerchandiseProperty.h"
 
 @interface MerchandiseParametersPicker : PopupView
 

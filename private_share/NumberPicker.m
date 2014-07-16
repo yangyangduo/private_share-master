@@ -11,6 +11,7 @@
 
 #define WIDTH  24
 #define HEIGHT 24
+#define TEXT_WIDTH 40
 
 @implementation NumberPicker {
     UIButton *btnAddition;
@@ -46,7 +47,7 @@
     if(direction == NumberPickerDirectionVertical) {
         return [[NumberPicker alloc] initWithFrame:CGRectMake(point.x, point.y, WIDTH, HEIGHT * 3 + 4) direction:direction];
     } else {
-        return [[NumberPicker alloc] initWithFrame:CGRectMake(point.x, point.y, WIDTH * 3 + 4, HEIGHT) direction:direction];
+        return [[NumberPicker alloc] initWithFrame:CGRectMake(point.x, point.y, WIDTH * 2 + TEXT_WIDTH, HEIGHT) direction:direction];
     }
 }
 
@@ -63,7 +64,7 @@
         btnReduction = [[UIButton alloc] initWithFrame:CGRectMake(0, HEIGHT * 2 + 4, WIDTH, HEIGHT)];
     } else {
         btnReduction = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
-        btnAddition = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH * 2 + 4, 0, WIDTH, HEIGHT)];
+        btnAddition = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH + TEXT_WIDTH, 0, WIDTH, HEIGHT)];
     }
     
     btnAddition.tag = 1;
@@ -102,7 +103,7 @@
     if(_direction_ == NumberPickerDirectionVertical) {
         lblNumber = [[UILabel alloc] initWithFrame:CGRectMake(0, HEIGHT + 2, WIDTH, HEIGHT)];
     } else {
-        lblNumber = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH + 2, 0, WIDTH, HEIGHT)];
+        lblNumber = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH, 0, TEXT_WIDTH, HEIGHT)];
     }
     lblNumber.textColor = [UIColor orangeColor];
     lblNumber.textAlignment = NSTextAlignmentCenter;

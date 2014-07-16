@@ -55,8 +55,8 @@
         pointsLabel = [[UILabel alloc] initWithFrame:CGRectMake(pointsImageView.frame.origin.x + pointsImageView.frame.size.width + 5, pointsImageView.frame.origin.y, 100, 20)];
         pointsLabel.center = CGPointMake(pointsLabel.center.x, pointsImageView.center.y);
         pointsLabel.backgroundColor = [UIColor clearColor];
-        pointsLabel.font = [UIFont systemFontOfSize:14.f];
-        pointsLabel.text = @"1000积分";
+        pointsLabel.font = [UIFont systemFontOfSize:15.f];
+        pointsLabel.text = [NSString stringWithFormat:@"%d%@", _merchandise_.points, NSLocalizedString(@"points", @"")];
         pointsLabel.textColor = [UIColor grayColor];
         [self addSubview:pointsLabel];
         
@@ -101,16 +101,16 @@
         [self addSubview:[self lineViewWithX:10 y:lastY]];
         lastY += 11.f;
         
-        pointsPaymentButton = [[PaymentButton alloc] initWithPoint:CGPointMake(10, lastY) paymentType:PaymentTypePoints points:_merchandise_.points];
+        pointsPaymentButton = [[PaymentButton alloc] initWithPoint:CGPointMake(10, lastY) paymentType:PaymentTypePoints points:_merchandise_.points returnPoints:0];
         [self addSubview:pointsPaymentButton];
         
-        cashPaymentButton = [[PaymentButton alloc] initWithPoint:CGPointMake(pointsPaymentButton.frame.origin.x + pointsPaymentButton.bounds.size.width + 10, lastY) paymentType:PaymentTypeCash points:_merchandise_.points];
+        cashPaymentButton = [[PaymentButton alloc] initWithPoint:CGPointMake(pointsPaymentButton.frame.origin.x + pointsPaymentButton.bounds.size.width + 10, lastY) paymentType:PaymentTypeCash points:_merchandise_.points returnPoints:_merchandise_.returnPoints];
         [self addSubview:cashPaymentButton];
         
         [pointsPaymentButton addTarget:self action:@selector(paymentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [cashPaymentButton addTarget:self action:@selector(paymentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        lastY += pointsPaymentButton.bounds.size.height + 10.f;
+        lastY += pointsPaymentButton.bounds.size.height + 15.f;
         
         [self addSubview:[self lineViewWithX:10 y:lastY]];
         lastY += 11.f;
@@ -161,6 +161,11 @@
 
 - (void)paymentButtonPressed:(PaymentButton *)paymentButton {
     paymentButton.selected = !paymentButton.selected;
+    if(paymentButton == pointsPaymentButton) {
+        cashPaymentButton.selected = !paymentButton.selected;
+    } else {
+        pointsPaymentButton.selected = !paymentButton.selected;
+    }
 }
 
 @end

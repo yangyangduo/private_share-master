@@ -11,6 +11,6 @@
 
 @interface PaymentButton : UIButton
 
-- (instancetype)initWithPoint:(CGPoint)point paymentType:(PaymentType)paymentType points:(NSInteger)points;
+- (instancetype)initWithPoint:(CGPoint)point paymentType:(PaymentType)paymentType points:(NSInteger)points returnPoints:(NSInteger)returnPoints;
 
 @end

@@ -11,11 +11,12 @@
 
 @implementation PaymentButton
 
-- (instancetype)initWithPoint:(CGPoint)point paymentType:(PaymentType)paymentType points:(NSInteger)points {
+- (instancetype)initWithPoint:(CGPoint)point paymentType:(PaymentType)paymentType points:(NSInteger)points returnPoints:(NSInteger)returnPoints {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 4, 22, 22)];
     imageView.image = [UIImage imageNamed:(PaymentTypePoints == paymentType ? @"points_blue" : @"rmb_blue")];
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] init];
+    NSMutableAttributedString *selectedAttributedString = [[NSMutableAttributedString alloc] init];
     
     NSString *titleString;
     if(PaymentTypePoints == paymentType) {
@@ -30,10 +31,22 @@
                NSFontAttributeName : [UIFont systemFontOfSize:15.f]
                }]];
     
+    [selectedAttributedString appendAttributedString:[[NSAttributedString alloc] initWithString:titleString
+             attributes: @{
+                           NSForegroundColorAttributeName : [UIColor appColor],
+                           NSFontAttributeName : [UIFont systemFontOfSize:15.f]
+                           }]];
+    
     if(PaymentTypeCash == paymentType) {
-        [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" (返%d积分)", points]
+        [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" (返%d积分)", returnPoints]
                  attributes: @{
                                NSForegroundColorAttributeName : [UIColor grayColor],
+                               NSFontAttributeName : [UIFont systemFontOfSize:12.f]
+                               }]];
+        
+        [selectedAttributedString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" (返%d积分)", returnPoints]
+                 attributes: @{
+                               NSForegroundColorAttributeName : [UIColor appColor],
                                NSFontAttributeName : [UIFont systemFontOfSize:12.f]
                                }]];
     }
@@ -47,6 +60,7 @@
         self.layer.borderWidth = 1;
         self.layer.cornerRadius = 4;
         [self setAttributedTitle:attributedString forState:UIControlStateNormal];
+        [self setAttributedTitle:selectedAttributedString forState:UIControlStateSelected];
         self.titleEdgeInsets = UIEdgeInsetsMake(0, 5 + 22, 0, 0);
     }
     return self;
@@ -54,7 +68,6 @@
 
 - (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
-    
     if(selected) {
         self.layer.borderColor = [UIColor appColor].CGColor;
     } else {

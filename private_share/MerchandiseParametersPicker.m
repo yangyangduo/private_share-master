@@ -10,12 +10,16 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "NumberPicker.h"
 #import "UIColor+App.h"
+#import "PaymentButton.h"
 
 @implementation MerchandiseParametersPicker {
     UIImageView *imageView;
     UIImageView *pointsImageView;
     UILabel *merchandiseNameLabel;
     UILabel *pointsLabel;
+    
+    PaymentButton *pointsPaymentButton;
+    PaymentButton *cashPaymentButton;
 }
 
 @synthesize merchandise = _merchandise_;
@@ -97,6 +101,16 @@
         [self addSubview:[self lineViewWithX:10 y:lastY]];
         lastY += 11.f;
         
+        pointsPaymentButton = [[PaymentButton alloc] initWithPoint:CGPointMake(10, lastY) paymentType:PaymentTypePoints points:_merchandise_.points];
+        [self addSubview:pointsPaymentButton];
+        
+        cashPaymentButton = [[PaymentButton alloc] initWithPoint:CGPointMake(pointsPaymentButton.frame.origin.x + pointsPaymentButton.bounds.size.width + 10, lastY) paymentType:PaymentTypeCash points:_merchandise_.points];
+        [self addSubview:cashPaymentButton];
+        
+        [pointsPaymentButton addTarget:self action:@selector(paymentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [cashPaymentButton addTarget:self action:@selector(paymentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        lastY += pointsPaymentButton.bounds.size.height + 10.f;
         
         [self addSubview:[self lineViewWithX:10 y:lastY]];
         lastY += 11.f;
@@ -143,6 +157,10 @@
 
 - (void)dynamicGroupButtonView:(DynamicGroupButtonView *)dynamicGroupButtonView selectedItemDidChangeTo:(NameValue *)nameValue {
     NSLog(@"%@ -- %@", dynamicGroupButtonView.identifier, nameValue.name);
+}
+
+- (void)paymentButtonPressed:(PaymentButton *)paymentButton {
+    paymentButton.selected = !paymentButton.selected;
 }
 
 @end

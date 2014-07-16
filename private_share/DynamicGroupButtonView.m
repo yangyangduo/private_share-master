@@ -64,7 +64,12 @@ CGFloat const kDynamicButtonMinWidth = 20.f;
         button.titleLabel.font = [UIFont systemFontOfSize:14.f];
         [button addTarget:groupButtonView action:@selector(dynamicButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [groupButtonView addSubview:button];
+        
+        if(groupButtons.count == 1) {
+            groupButtonView.selectedItem = [nameValues objectAtIndex:0];
+        }
     }
+    
     return groupButtonView;
 }
 

@@ -12,6 +12,10 @@
 #import "PBOfferWall.h"
 #import "DMOfferWallManager.h"
 #import "GlobalConfig.h"
+#import "DianRuAdWall.h"
+
+
+#import "UIDevice+Identifier.h"
 
 @implementation ExperienceTasksViewController {
     UITableView *taskTableView;
@@ -28,6 +32,9 @@
     taskTableView.delegate = self;
     taskTableView.dataSource = self;
     [self.view addSubview:taskTableView];
+    
+    //init dianru
+    [DianRuAdWall initAdWallWithDianRuAdWallDelegate:self];
 }
 
 #pragma mark -
@@ -69,15 +76,9 @@
         cell.textLabel.text = NSLocalizedString(@"cocounion", @"");
         cell.imageView.image = [UIImage imageNamed:@"icon_experience"];
     } else if(indexPath.row == 3) {
-        cell.textLabel.text = NSLocalizedString(@"yijifen", @"");
-        cell.imageView.image = [UIImage imageNamed:@"icon_yijifen"];
-    }
-    /*
-    else if(indexPath.row == 2) {
-        cell.textLabel.text = NSLocalizedString(@"domob", @"");
+        cell.textLabel.text = NSLocalizedString(@"dianru", @"");
         cell.imageView.image = [UIImage imageNamed:@"icon_experience"];
     }
-    */
     return cell;
 }
 
@@ -96,10 +97,13 @@
         [[PBOfferWall sharedOfferWall] loadOfferWall:[PBADRequest request]];
         [[PBOfferWall sharedOfferWall] showOfferWallWithScale:0.9f];
     } else if(indexPath.row == 3) {
+        [DianRuAdWall showAdWall:self];
+        /* disable yjf
         YJFIntegralWall *integralWall = [[YJFIntegralWall alloc]init]; if([integralWall isScoreShow]){
             //    integralWall.delegate = self;
             [self presentViewController:integralWall animated:YES completion:nil];
         }
+         */
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -110,4 +114,15 @@
     return footerView;
 }
 
+//dianru application key
+-(NSString *)applicationKey
+{
+    return @"0000B919150000B5";
+}
+
+//dianru required user id
+-(NSString *)dianruAdWallAppUserId
+{
+    return [GlobalConfig defaultConfig].userName;
+}
 @end

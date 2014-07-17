@@ -145,6 +145,7 @@
     [YouMiConfig launchWithAppID:kYoumiAppID appSecret:kYoumiSecretKey];
     [YouMiWall enable];
     
+    /* Disable YJF platform
     // init yijifen platform
     [YJFUserMessage shareInstance].yjfCoop_info = [GlobalConfig defaultConfig].userName;
     [YJFUserMessage shareInstance].yjfUserAppId = kYijifenAppID;
@@ -153,12 +154,11 @@
     [YJFUserMessage shareInstance].yjfChannel = kYijifenChannel;
     YJFInitServer *InitData = [[YJFInitServer alloc] init];
     [InitData getInitEscoreData];
+    */
     
-    //
+    //init cocounion platform
     [PunchBoxAd startSession:kCocounionSecretKey];
     [PunchBoxAd setUserInfo:[GlobalConfig defaultConfig].userName];
-    
-    //
 }
 
 #pragma mark -

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>745BFF8E-8CA4-4651-961B-2E76207BC75D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>private_share</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C3640154-9B04-4B1F-A098-BB2DAB124893</key>
+		<string>https://github.com/yangyangduo/private_share-master.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>private_share.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C3640154-9B04-4B1F-A098-BB2DAB124893</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/yangyangduo/private_share-master.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C3640154-9B04-4B1F-A098-BB2DAB124893</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C3640154-9B04-4B1F-A098-BB2DAB124893</string>
+			<key>IDESourceControlWCCName</key>
+			<string>yoomid</string>
+		</dict>
+	</array>
+</dict>
+</plist>

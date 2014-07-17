@@ -11,7 +11,7 @@
 
 @implementation UIDevice (Identifier)
 
-- (NSString *)idfaString {
++ (NSString *)idfaString {
     return [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 }
 

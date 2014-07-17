@@ -10,6 +10,6 @@
 
 @interface UIDevice (Identifier)
 
-- (NSString *)idfaString;
++ (NSString *)idfaString;
 
 @end

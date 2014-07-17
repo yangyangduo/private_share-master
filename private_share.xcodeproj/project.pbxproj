@@ -167,6 +167,7 @@
 		6F7BD32E1953F8E60031D2DD /* btn_flash_light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F7BD32C1953F8E60031D2DD /* btn_flash_light@2x.png */; };
 		6F7BD32F1953F8E60031D2DD /* btn_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F7BD32D1953F8E60031D2DD /* btn_info@2x.png */; };
 		6F7BD33219540A620031D2DD /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7BD33119540A620031D2DD /* QRCode.m */; };
+		6F86B6851977776600B4FCDE /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F86B6841977776600B4FCDE /* close@2x.png */; };
 		6F8823B7193F5FA000757633 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8823B6193F5FA000757633 /* HttpClient.m */; };
 		6F8823BA193FFDBD00757633 /* HttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8823B9193FFDBD00757633 /* HttpResponse.m */; };
 		6F8823BD19404DE200757633 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8823BC19404DE200757633 /* BaseModel.m */; };
@@ -531,6 +532,7 @@
 		6F7BD32D1953F8E60031D2DD /* btn_info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_info@2x.png"; sourceTree = "<group>"; };
 		6F7BD33019540A620031D2DD /* QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCode.h; sourceTree = "<group>"; };
 		6F7BD33119540A620031D2DD /* QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCode.m; sourceTree = "<group>"; };
+		6F86B6841977776600B4FCDE /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
 		6F8823B5193F5FA000757633 /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		6F8823B6193F5FA000757633 /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
 		6F8823B8193FFDBD00757633 /* HttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpResponse.h; sourceTree = "<group>"; };
@@ -1636,6 +1638,7 @@
 				6F41897E194858B400F9DC2C /* checkbox_unselected@2x.png */,
 				6F3F65EB1942020F007A41E0 /* radio@2x.png */,
 				6FBE928E1941B1D200B94195 /* back@2x.png */,
+				6F86B6841977776600B4FCDE /* close@2x.png */,
 				6F66B5A5194AE17A008A948C /* icon_contact@2x.png */,
 				6F726B4B196CDEC900875B05 /* logo@2x.png */,
 				6FBE928C194167DD00B94195 /* merchandise_placeholder@2x.png */,
@@ -1763,6 +1766,7 @@
 				6FE6559F1942BFA3009617C9 /* 4.jpg in Resources */,
 				6F3F65ED1942020F007A41E0 /* radio@2x.png in Resources */,
 				6FE6559E1942BFA3009617C9 /* 3.jpg in Resources */,
+				6F86B6851977776600B4FCDE /* close@2x.png in Resources */,
 				6FB714D8196E5F4800598457 /* my_mall@2x.png in Resources */,
 				6F12F360194FE48F00B47132 /* level1@2x.png in Resources */,
 				6FF5334019387D26001D607C /* btn_menu@2x.png in Resources */,

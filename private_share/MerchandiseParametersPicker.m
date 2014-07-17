@@ -11,6 +11,10 @@
 #import "NumberPicker.h"
 #import "UIColor+App.h"
 #import "PaymentButton.h"
+#import "UIImage+Color.h"
+#import "UIDevice+ScreenSize.h"
+#import "XXAlertView.h"
+#import "ShoppingCart.h"
 
 @implementation MerchandiseParametersPicker {
     UIImageView *imageView;
@@ -20,12 +24,15 @@
     
     PaymentButton *pointsPaymentButton;
     PaymentButton *cashPaymentButton;
+    NSMutableArray *groupButtonsViews;
+    
+    UIScrollView *scrollView;
 }
 
 @synthesize merchandise = _merchandise_;
 
 + (instancetype)pickerWithMerchandise:(Merchandise *)merchandise {
-    MerchandiseParametersPicker *picker = [[MerchandiseParametersPicker alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 550) merchandise:merchandise];
+    MerchandiseParametersPicker *picker = [[MerchandiseParametersPicker alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 400) merchandise:merchandise];
     return picker;
 }
 
@@ -60,21 +67,31 @@
         pointsLabel.textColor = [UIColor grayColor];
         [self addSubview:pointsLabel];
         
-        UIView *line1 = [self lineViewWithY:imageView.frame.origin.y + imageView.frame.size.height + 10];
-        [self addSubview:line1];
+        UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width - 49.f / 2 - 10, 40, 49.f / 2, 49.f / 2)];
+        [closeButton addTarget:self action:@selector(closeView) forControlEvents:UIControlEventTouchUpInside];
+        [closeButton setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+        [self addSubview:closeButton];
         
-        CGFloat lastY = line1.frame.origin.y + 10;
+        UIView *firstLine = [self lineViewWithY:imageView.frame.origin.y + imageView.frame.size.height + 10];
+        [self addSubview:firstLine];
+        
+        // scroll view begin
+        CGFloat lastY = firstLine.frame.origin.y + 11;
+        scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, lastY, self.bounds.size.width, 200)];
+        lastY = 0;
+        
         if(_merchandise_.properties != nil) {
+            groupButtonsViews = [NSMutableArray array];
             for(int i=0; i<_merchandise_.properties.count; i++) {
                 MerchandiseProperty *property = [_merchandise_.properties objectAtIndex:i];
                 
                 UILabel *propertyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, lastY, 300, 30)];
                 propertyLabel.text = property.name;
                 propertyLabel.textColor = [UIColor darkGrayColor];
-                [self addSubview:propertyLabel];
+                [scrollView addSubview:propertyLabel];
                 lastY += propertyLabel.bounds.size.height + 2;
                 
-                [self addSubview:[self lineViewWithX:10 y:lastY]];
+                [scrollView addSubview:[self lineViewWithX:10 y:lastY]];
                 lastY += 11.f;
                 
                 if(property.values != nil) {
@@ -86,8 +103,9 @@
                     groupButtonView.identifier = property.name;
                     groupButtonView.delegate = self;
                     groupButtonView.tintColor = [UIColor appColor];
-                    [self addSubview:groupButtonView];
+                    [scrollView addSubview:groupButtonView];
                     lastY += groupButtonView.bounds.size.height + 10;
+                    [groupButtonsViews addObject:groupButtonView];
                 }
             }
         }
@@ -95,47 +113,72 @@
         UILabel *exchangeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, lastY, 100, 30)];
         exchangeLabel.textColor = [UIColor darkGrayColor];
         exchangeLabel.text = NSLocalizedString(@"exchange_type", @"");
-        [self addSubview:exchangeLabel];
+        [scrollView addSubview:exchangeLabel];
         
         lastY += exchangeLabel.bounds.size.height + 2.f;
-        [self addSubview:[self lineViewWithX:10 y:lastY]];
+        [scrollView addSubview:[self lineViewWithX:10 y:lastY]];
         lastY += 11.f;
         
         pointsPaymentButton = [[PaymentButton alloc] initWithPoint:CGPointMake(10, lastY) paymentType:PaymentTypePoints points:_merchandise_.points returnPoints:0];
-        [self addSubview:pointsPaymentButton];
+        [scrollView addSubview:pointsPaymentButton];
         
         cashPaymentButton = [[PaymentButton alloc] initWithPoint:CGPointMake(pointsPaymentButton.frame.origin.x + pointsPaymentButton.bounds.size.width + 10, lastY) paymentType:PaymentTypeCash points:_merchandise_.points returnPoints:_merchandise_.returnPoints];
-        [self addSubview:cashPaymentButton];
+        [scrollView addSubview:cashPaymentButton];
         
         [pointsPaymentButton addTarget:self action:@selector(paymentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [cashPaymentButton addTarget:self action:@selector(paymentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         lastY += pointsPaymentButton.bounds.size.height + 15.f;
         
-        [self addSubview:[self lineViewWithX:10 y:lastY]];
+        [scrollView addSubview:[self lineViewWithX:10 y:lastY]];
         lastY += 11.f;
         
         UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, lastY, 100, 30)];
         numberLabel.textColor = [UIColor darkGrayColor];
         numberLabel.text = NSLocalizedString(@"purchase_number", @"");
-        [self addSubview:numberLabel];
+        [scrollView addSubview:numberLabel];
         
         NumberPicker *numberPicker = [NumberPicker numberPickerWithPoint:CGPointMake(225, lastY) defaultValue:1 direction:NumberPickerDirectionHorizontal];
         numberPicker.center = CGPointMake(numberPicker.center.x, numberLabel.center.y);
-        [self addSubview:numberPicker];
+        [scrollView addSubview:numberPicker];
         
-        lastY += numberLabel.bounds.size.height + 11.f;
+        lastY += numberLabel.bounds.size.height + 10;
+        scrollView.contentSize = CGSizeMake(scrollView.bounds.size.width, lastY);
+        [self addSubview:scrollView];
+        // scroll view end
         
-        [self addSubview:[self lineViewWithY:lastY]];
-        lastY += 11.f;
+        // re-calc size begin
+        CGFloat head=firstLine.frame.origin.y + 11, body=scrollView.contentSize.height, foot = 10 + 26 + 10, maxHeight = [UIDevice is4InchDevice] ? 488 : 400, totalHeight = 0;
         
-        UIButton *purchaseButton = [[UIButton alloc] initWithFrame:CGRectMake(100, lastY, 120, 30)];
-        purchaseButton.backgroundColor = [UIColor blueColor];
-        [purchaseButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        totalHeight = head + body + foot;
+        if(totalHeight > maxHeight) {
+            body = maxHeight - head - foot;
+            totalHeight = maxHeight;
+        }
+        
+        CGRect selfFrame = self.frame;
+        selfFrame.size.height = totalHeight;
+        self.frame = selfFrame;
+        
+        CGRect scrollFrame = scrollView.frame;
+        scrollFrame.size.height = body;
+        scrollView.frame = scrollFrame;
+        // re-calc size end
+        
+        // purchase button
+        [self addSubview:[self lineViewWithY:self.bounds.size.height - 10 - 26 - 10]];
+        
+        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - 9 - 26 - 10, self.bounds.size.width, 9 + 26 + 10)];
+        bottomView.backgroundColor = [UIColor colorWithRed:250.f / 255.f green:250.f / 255.f blue:250.f / 255.f alpha:1.0];
+        [self addSubview:bottomView];
+        
+        UIButton *purchaseButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 10, 120, 26)];
+        [purchaseButton addTarget:self action:@selector(confirmMerchandiseSelect:) forControlEvents:UIControlEventTouchUpInside];
+        [purchaseButton setBackgroundImage:[UIImage imageWithColor:[UIColor appColor] size:CGSizeMake(120, 26)] forState:UIControlStateNormal];
+        purchaseButton.layer.cornerRadius = 5;
+        purchaseButton.layer.masksToBounds = YES;
         [purchaseButton setTitle:NSLocalizedString(@"determine", @"") forState:UIControlStateNormal];
-        [self addSubview:purchaseButton];
-        
-        lastY += purchaseButton.bounds.size.height;
+        [bottomView addSubview:purchaseButton];
     }
     return self;
 }
@@ -156,16 +199,51 @@
 #pragma mark 
 
 - (void)dynamicGroupButtonView:(DynamicGroupButtonView *)dynamicGroupButtonView selectedItemDidChangeTo:(NameValue *)nameValue {
-    NSLog(@"%@ -- %@", dynamicGroupButtonView.identifier, nameValue.name);
 }
 
 - (void)paymentButtonPressed:(PaymentButton *)paymentButton {
+    if(paymentButton.selected) return;
     paymentButton.selected = !paymentButton.selected;
     if(paymentButton == pointsPaymentButton) {
         cashPaymentButton.selected = !paymentButton.selected;
     } else {
         pointsPaymentButton.selected = !paymentButton.selected;
     }
+}
+
+- (void)confirmMerchandiseSelect:(id)sender {
+    if(groupButtonsViews != nil) {
+        for(int i=0; i<groupButtonsViews.count; i++) {
+            DynamicGroupButtonView *groupButtonView = [groupButtonsViews objectAtIndex:i];
+            if(groupButtonView.selectedItem == nil) {
+                [[XXAlertView currentAlertView] setMessage:[NSString stringWithFormat:@"%@%@", NSLocalizedString(@"please_select", @""), groupButtonView.identifier] forType:AlertViewTypeFailed];
+                [[XXAlertView currentAlertView] alertForLock:NO autoDismiss:YES];
+                return;
+            }
+        }
+    }
+    
+    if(!cashPaymentButton.selected && !pointsPaymentButton.selected) {
+        [[XXAlertView currentAlertView] setMessage:[NSString stringWithFormat:@"%@%@", NSLocalizedString(@"please_select", @""), NSLocalizedString(@"exchange_type", @"")] forType:AlertViewTypeFailed];
+        [[XXAlertView currentAlertView] alertForLock:NO autoDismiss:YES];
+        return;
+    }
+    
+    PaymentType paymentType = pointsPaymentButton.selected ? PaymentTypePoints : PaymentTypeCash;
+    
+    /*
+    BOOL success = [[ShoppingCart myShoppingCart] putMerchandise:_merchandise_ shopID:kHentreStoreID number:numberPicker.number paymentType:paymentType];
+    if(success) {
+        [[XXAlertView currentAlertView] setMessage:NSLocalizedString(@"added_to_shopping_cart", @"") forType:AlertViewTypeSuccess];
+        [[XXAlertView currentAlertView] alertForLock:NO autoDismiss:YES];
+        [self dismissViewController:sender];
+    } else {
+        [[XXAlertView currentAlertView] setMessage:NSLocalizedString(@"points_not_enough", @"") forType:AlertViewTypeFailed];
+        [[XXAlertView currentAlertView] alertForLock:NO autoDismiss:YES];
+    }
+     */
+    
+    [self closeView];
 }
 
 @end

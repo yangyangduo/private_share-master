@@ -63,7 +63,6 @@
 		6F2C52C819751D2C0045BFC1 /* guide5-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2C52BE19751D2C0045BFC1 /* guide5-568h@2x.png */; };
 		6F2C52C919751D2C0045BFC1 /* guide5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2C52BF19751D2C0045BFC1 /* guide5@2x.png */; };
 		6F2C52CC19751D510045BFC1 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2C52CB19751D510045BFC1 /* GuideViewController.m */; };
-		6F2C52CE1975259E0045BFC1 /* go@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2C52CD1975259E0045BFC1 /* go@2x.png */; };
 		6F3632F8193EBF9D00340645 /* DefaultStyleTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3632F7193EBF9D00340645 /* DefaultStyleTextField.m */; };
 		6F3632FB193EC87800340645 /* RegisterCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3632FA193EC87800340645 /* RegisterCompleteViewController.m */; };
 		6F3632FE193EC8F600340645 /* DefaultStyleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3632FD193EC8F600340645 /* DefaultStyleButton.m */; };
@@ -168,6 +167,7 @@
 		6F7BD32F1953F8E60031D2DD /* btn_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F7BD32D1953F8E60031D2DD /* btn_info@2x.png */; };
 		6F7BD33219540A620031D2DD /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7BD33119540A620031D2DD /* QRCode.m */; };
 		6F86B6851977776600B4FCDE /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F86B6841977776600B4FCDE /* close@2x.png */; };
+		6F86B68719778AB800B4FCDE /* go@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F86B68619778AB800B4FCDE /* go@2x.png */; };
 		6F8823B7193F5FA000757633 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8823B6193F5FA000757633 /* HttpClient.m */; };
 		6F8823BA193FFDBD00757633 /* HttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8823B9193FFDBD00757633 /* HttpResponse.m */; };
 		6F8823BD19404DE200757633 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8823BC19404DE200757633 /* BaseModel.m */; };
@@ -443,7 +443,6 @@
 		6F2C52BF19751D2C0045BFC1 /* guide5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide5@2x.png"; sourceTree = "<group>"; };
 		6F2C52CA19751D510045BFC1 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
 		6F2C52CB19751D510045BFC1 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
-		6F2C52CD1975259E0045BFC1 /* go@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "go@2x.png"; sourceTree = "<group>"; };
 		6F3632F6193EBF9D00340645 /* DefaultStyleTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultStyleTextField.h; sourceTree = "<group>"; };
 		6F3632F7193EBF9D00340645 /* DefaultStyleTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultStyleTextField.m; sourceTree = "<group>"; };
 		6F3632F9193EC87800340645 /* RegisterCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterCompleteViewController.h; sourceTree = "<group>"; };
@@ -611,6 +610,7 @@
 		6F7BD33019540A620031D2DD /* QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCode.h; sourceTree = "<group>"; };
 		6F7BD33119540A620031D2DD /* QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCode.m; sourceTree = "<group>"; };
 		6F86B6841977776600B4FCDE /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		6F86B68619778AB800B4FCDE /* go@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "go@2x.png"; sourceTree = "<group>"; };
 		6F8823B5193F5FA000757633 /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		6F8823B6193F5FA000757633 /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
 		6F8823B8193FFDBD00757633 /* HttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpResponse.h; sourceTree = "<group>"; };
@@ -1044,7 +1044,7 @@
 		6F2C52B51975188A0045BFC1 /* dash_borad */ = {
 			isa = PBXGroup;
 			children = (
-				6F2C52CD1975259E0045BFC1 /* go@2x.png */,
+				6F86B68619778AB800B4FCDE /* go@2x.png */,
 				6F2C52B619751D2C0045BFC1 /* guide1-568h@2x.png */,
 				6F2C52B719751D2C0045BFC1 /* guide1@2x.png */,
 				6F2C52B819751D2C0045BFC1 /* guide2-568h@2x.png */,
@@ -2176,6 +2176,7 @@
 				D3644AF4197766E500B44785 /* dianru_purple_dianru_bottom.png in Resources */,
 				6F2C52C519751D2C0045BFC1 /* guide3@2x.png in Resources */,
 				6FBB6B951973D3A200E6C7D2 /* mi_repo2@2x.png in Resources */,
+				6F86B68719778AB800B4FCDE /* go@2x.png in Resources */,
 				6FBE92911941BABE00B94195 /* shopping_cart@2x.png in Resources */,
 				6F8823D71940531F00757633 /* blueArrow.png in Resources */,
 				6F2C52C719751D2C0045BFC1 /* guide4@2x.png in Resources */,
@@ -2193,7 +2194,6 @@
 				6F2C52C119751D2C0045BFC1 /* guide1@2x.png in Resources */,
 				6F12F37619501E8100B47132 /* Escore.bundle in Resources */,
 				6F12F365194FEBF000B47132 /* icon_video@2x.png in Resources */,
-				6F2C52CE1975259E0045BFC1 /* go@2x.png in Resources */,
 				6F76F79419667F4D00C2FD52 /* bg@2x.png in Resources */,
 				6FBE928F1941B1D200B94195 /* back@2x.png in Resources */,
 				D3644ACA197766E500B44785 /* dianru_back_btn.png in Resources */,

@@ -57,7 +57,7 @@
     if(![GlobalConfig defaultConfig].isLogin) {
         UINavigationController *loginNavigationViewController = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
         [UINavigationViewInitializer initialWithDefaultStyle:loginNavigationViewController];
-        [drawerViewController presentViewController:loginNavigationViewController animated:NO completion:^{ }];
+        [drawerViewController.navigationController presentViewController:loginNavigationViewController animated:NO completion:^{ }];
         
         [loginNavigationViewController presentViewController:[[GuideViewController alloc] init] animated:NO completion:^{ }];
     } else {

@@ -48,11 +48,9 @@
         if([viewController isKindOfClass:[PortalViewController class]]) {
             [navigationController setNavigationBarHidden:YES animated:YES];
         } else {
-        
             if(navigationController.navigationBarHidden) {
                 [navigationController setNavigationBarHidden:NO animated:YES];
             }
-            
         }
     } else {
         [[ViewControllerAccessor defaultAccessor].drawerViewController disableGestureForDrawerView];

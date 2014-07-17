@@ -39,11 +39,11 @@
         imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageName ofType:@"png"]];
         
         if(i == 4) {
-            CGFloat y = 460;
+            CGFloat y = 456;
             if(!is4InchDevice) {
-                y = 388;
+                y = 386;
             }
-            UIButton *goButton = [[UIButton alloc] initWithFrame:CGRectMake(242, y, 75.f / 2, 75.f / 2)];
+            UIButton *goButton = [[UIButton alloc] initWithFrame:CGRectMake(242, y, 115.f / 2, 85.f / 2)];
             [goButton setImage:[UIImage imageNamed:@"go"] forState:UIControlStateNormal];
             imageView.userInteractionEnabled = YES;
             [imageView addSubview:goButton];

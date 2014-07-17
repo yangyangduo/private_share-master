@@ -110,6 +110,11 @@
     if(rootViewController != nil) {
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         [UINavigationViewInitializer initialWithDefaultStyle:navigationController];
+        
+        if([@"portal" isEqualToString:selectedItem]) {
+            [navigationController setNavigationBarHidden:YES animated:NO];
+        }
+        
         [ViewControllerAccessor defaultAccessor].drawerViewController.centerViewController = navigationController;
         
         NSInteger _selected_index_ = -1;

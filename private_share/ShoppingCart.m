@@ -47,31 +47,26 @@
     return nil;
 }
 
-- (BOOL)putMerchandise:(Merchandise *)merchandise shopID:(NSString *)shopID number:(NSUInteger)number paymentType:(PaymentType)paymentType {
-    if(number == 0 || merchandise == nil || shopID == nil) return YES;
+- (void)putMerchandise:(Merchandise *)merchandise shopID:(NSString *)shopID number:(NSUInteger)number paymentType:(PaymentType)paymentType {
+    if(number == 0 || merchandise == nil || shopID == nil) return;
     
+    BOOL needAddShop = NO;
     ShopShoppingItems *shopShoppingItems = [self shopShoppingItemsWithShopID:shopID];
-    BOOL needAdded = NO;
+    
+    // no shop in shopping cart, create a shop
     if(shopShoppingItems == nil) {
         shopShoppingItems = [[ShopShoppingItems alloc] init];
         shopShoppingItems.shopID = shopID;
-        needAdded = YES;
+        needAddShop = YES;
     }
     
     ShoppingItem *item = [shopShoppingItems shoppingItemWithMerchandiseId:merchandise.identifier paymentType:paymentType];
     
     // exists merchandise
     if(item != nil) {
-        if(PaymentTypePoints == paymentType) {
-            NSInteger pointsToPay = merchandise.points * number;
-            if([Account currentAccount].availablePoints < pointsToPay) {
-                return NO;
-            }
-        }
         item.number += number;
-        [self refreshAvailablePoints];
         [self publishEvent];
-        return YES;
+        return;
     }
     
     // new merchandise
@@ -80,72 +75,52 @@
     newItem.number = number;
     newItem.paymentType = paymentType;
     
-    if(paymentType == PaymentTypePoints) {
-        if([Account currentAccount].availablePoints < newItem.payment.points) {
-            return NO;
-        }
-    }
-    
     [shopShoppingItems.shoppingItems addObject:newItem];
-    if(needAdded) {
+    if(needAddShop) {
         [shopShoppingItemss addObject:shopShoppingItems];
     }
-    [self refreshAvailablePoints];
+    
     [self publishEvent];
-    return YES;
 }
 
-- (BOOL)setMerchandise:(Merchandise *)merchandise shopID:(NSString *)shopID number:(NSUInteger)number paymentType:(PaymentType)paymentType {
-    if(merchandise == nil) return YES;
+- (void)setMerchandise:(Merchandise *)merchandise shopID:(NSString *)shopID number:(NSUInteger)number paymentType:(PaymentType)paymentType {
+    if(merchandise == nil) return;
     
+    BOOL needAddShop = NO;
     ShopShoppingItems *shopShoppingItems = [self shopShoppingItemsWithShopID:shopID];
-    BOOL needAdded = NO;
+    
     if(shopShoppingItems == nil) {
         shopShoppingItems = [[ShopShoppingItems alloc] init];
         shopShoppingItems.shopID = shopID;
-        needAdded = YES;
+        needAddShop = YES;
     }
     
     ShoppingItem *item = [shopShoppingItems shoppingItemWithMerchandiseId:merchandise.identifier paymentType:paymentType];
     if(item != nil) {
         if(number == 0) {
             [shopShoppingItems.shoppingItems removeObject:item];
-            [self refreshAvailablePoints];
             [self publishEvent];
-            return YES;
+            return;
         }
-        
-        if(PaymentTypePoints == paymentType) {
-            if([Account currentAccount].availablePoints + item.payment.points < merchandise.points * number) {
-                return NO;
-            }
-        }
-        
         item.number = number;
-        [self refreshAvailablePoints];
         [self publishEvent];
-        return YES;
+        return;
     }
     
-    if(number == 0) return YES;
+    // 新增的商品为0 忽略
+    if(number == 0) return;
     
     ShoppingItem *newItem = [[ShoppingItem alloc] init];
     newItem.merchandise = merchandise;
     newItem.number = number;
     newItem.paymentType = paymentType;
     
-    if(paymentType == PaymentTypePoints) {
-        if([Account currentAccount].points < newItem.payment.points) {
-            return NO;
-        }
-    }
     [shopShoppingItems.shoppingItems addObject:newItem];
-    if(needAdded) {
+    if(needAddShop) {
         [shopShoppingItemss addObject:shopShoppingItems];
     }
-    [self refreshAvailablePoints];
     [self publishEvent];
-    return YES;
+    return;
 }
 
 - (void)clearEmptyShoppingItems {
@@ -205,9 +180,11 @@
     return dic;
 }
 
+/*
 - (void)refreshAvailablePoints {
     [Account currentAccount].availablePoints = [Account currentAccount].points - self.totalPayment.points;
 }
+*/
 
 - (void)printShoppingCartForHentreStoreAsJson {
     [JsonUtil printDictionaryAsJsonFormat:[self toDictionaryWithShopID:kHentreStoreID]];

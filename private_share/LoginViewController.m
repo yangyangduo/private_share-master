@@ -13,6 +13,7 @@
 #import "XXAlertView.h"
 #import "AccountService.h"
 #import "AppDelegate.h"
+#import "ViewControllerAccessor.h"
 
 @interface LoginViewController ()
 
@@ -190,6 +191,7 @@
         
         [[XXAlertView currentAlertView] setMessage:NSLocalizedString(@"login_success", @"") forType:AlertViewTypeSuccess];
         [[XXAlertView currentAlertView] delayDismissAlertView];
+        
         [self.navigationController dismissViewControllerAnimated:NO completion:^{ }];
         
         return;

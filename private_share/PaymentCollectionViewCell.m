@@ -85,14 +85,8 @@
         return NO;
     }
     
-    if([[ShoppingCart myShoppingCart]
-        setMerchandise:_shoppingItem_.merchandise shopID:kHentreStoreID number:number
-            paymentType:_shoppingItem_.paymentType]) {
-        return YES;
-    }
-    [[XXAlertView currentAlertView] setMessage:NSLocalizedString(@"points_not_enough", @"") forType:AlertViewTypeFailed];
-    [[XXAlertView currentAlertView] alertForLock:NO autoDismiss:YES];
-    return NO;
+    [[ShoppingCart myShoppingCart] setMerchandise:_shoppingItem_.merchandise shopID:kHentreStoreID number:number paymentType:_shoppingItem_.paymentType];
+    return YES;
 }
 
 @end

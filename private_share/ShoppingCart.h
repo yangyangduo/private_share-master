@@ -20,8 +20,8 @@
 - (Payment *)totalPayment;
 
 - (ShopShoppingItems *)shopShoppingItemsWithShopID:(NSString *)shopID;
-- (BOOL)putMerchandise:(Merchandise *)merchandise shopID:(NSString *)shopID number:(NSUInteger)number paymentType:(PaymentType)paymentType;
-- (BOOL)setMerchandise:(Merchandise *)merchandise shopID:(NSString *)shopID number:(NSUInteger)number paymentType:(PaymentType)paymentType;
+- (void)putMerchandise:(Merchandise *)merchandise shopID:(NSString *)shopID number:(NSUInteger)number paymentType:(PaymentType)paymentType;
+- (void)setMerchandise:(Merchandise *)merchandise shopID:(NSString *)shopID number:(NSUInteger)number paymentType:(PaymentType)paymentType;
 
 - (void)clearEmptyShoppingItems;
 - (void)clearShoppingItemss;

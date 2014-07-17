@@ -120,15 +120,11 @@
     if(_merchandise_ == nil || numberPicker.number <= 0) return;
     
     PaymentType paymentType = radioListView.selectedIndex == 0 ? PaymentTypePoints : PaymentTypeCash;
-    BOOL success = [[ShoppingCart myShoppingCart] putMerchandise:_merchandise_ shopID:kHentreStoreID number:numberPicker.number paymentType:paymentType];
-    if(success) {
-        [[XXAlertView currentAlertView] setMessage:NSLocalizedString(@"added_to_shopping_cart", @"") forType:AlertViewTypeSuccess];
-        [[XXAlertView currentAlertView] alertForLock:NO autoDismiss:YES];
-        [self dismissViewController:sender];
-    } else {
-        [[XXAlertView currentAlertView] setMessage:NSLocalizedString(@"points_not_enough", @"") forType:AlertViewTypeFailed];
-        [[XXAlertView currentAlertView] alertForLock:NO autoDismiss:YES];
-    }
+    [[ShoppingCart myShoppingCart] putMerchandise:_merchandise_ shopID:kHentreStoreID number:numberPicker.number paymentType:paymentType];
+    
+    [[XXAlertView currentAlertView] setMessage:NSLocalizedString(@"added_to_shopping_cart", @"") forType:AlertViewTypeSuccess];
+    [[XXAlertView currentAlertView] alertForLock:NO autoDismiss:YES];
+    [self dismissViewController:sender];
 }
 
 - (void)dismissViewController:(id)sender {

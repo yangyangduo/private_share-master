@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UIDevice+Identifier.h"
 #import "DrawerViewController.h"
 #import "LeftDrawerViewController.h"
 #import "UINavigationViewInitializer.h"
@@ -17,13 +18,14 @@
 #import "YouMiWall.h"
 #import "Constants.h"
 #import "ShoppingCart.h"
-#import<Escore/YJFUserMessage.h>
-#import<Escore/YJFInitServer.h>
+#import <Escore/YJFUserMessage.h>
+#import <Escore/YJFInitServer.h>
 #import <AdSupport/ASIdentifierManager.h>
 #import "PunchBoxAd.h"
 #import "Account.h"
 #import "ActivitiesViewController.h"
 #import "PortalViewController.h"
+#import "GuideViewController.h"
 
 @implementation AppDelegate
 
@@ -56,6 +58,8 @@
         UINavigationController *loginNavigationViewController = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
         [UINavigationViewInitializer initialWithDefaultStyle:loginNavigationViewController];
         [drawerViewController presentViewController:loginNavigationViewController animated:NO completion:^{ }];
+        
+        [loginNavigationViewController presentViewController:[[GuideViewController alloc] init] animated:NO completion:^{ }];
     } else {
         [self doAfterLogin];
     }

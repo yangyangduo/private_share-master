@@ -32,6 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     htmlView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 44)];
     htmlView.backgroundColor = [UIColor whiteColor];
     htmlView.scrollView.delegate = self;
@@ -100,7 +102,6 @@
     [htmlView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/merchandises/%@", kBaseUrl, _merchandise_.identifier]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.f]];
 }
 
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [pullImagesView pullScrollViewDidScroll:scrollView];
 }
@@ -143,7 +144,8 @@
 }
 
 - (void)showParameterPickerView:(UIButton *)sender {
-//    MerchandiseParametersPicker *picker = [MerchandiseParametersPicker alloc] 
+    MerchandiseParametersPicker *picker = [MerchandiseParametersPicker pickerWithMerchandise:self.merchandise];
+    [picker showInView:self.view];
 }
 
 - (NSString *)errorHtml {

@@ -46,6 +46,7 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     barHeight = 44;
     width = self.view.bounds.size.width - 15 * 2;

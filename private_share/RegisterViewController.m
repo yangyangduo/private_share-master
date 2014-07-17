@@ -29,7 +29,7 @@
     self.title = NSLocalizedString(@"account_register", @"");
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"done", @"") style:UIBarButtonItemStylePlain target:self action:@selector(submitNewPassword:)];
     
-    CGFloat y = 6;
+    CGFloat y = 10;
     tblPasswordChange = [[UITableView alloc] initWithFrame:CGRectMake(0, y, self.view.bounds.size.width, self.view.bounds.size.height - 216 - y - ([UIDevice systemVersionIsMoreThanOrEqual7] ? 64 : 44)) style:UITableViewStylePlain];
     tblPasswordChange.dataSource = self;
     tblPasswordChange.delegate = self;

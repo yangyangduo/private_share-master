@@ -8,8 +8,10 @@
 
 #import "PopupView.h"
 #import "Merchandise.h"
+#import "MerchandiseProperty.h"
+#import "DynamicGroupButtonView.h"
 
-@interface MerchandiseParametersPicker : PopupView
+@interface MerchandiseParametersPicker : PopupView<DynamicGroupButtonViewDelegate>
 
 @property (nonatomic, strong) Merchandise *merchandise;
 

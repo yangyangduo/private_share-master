@@ -48,6 +48,7 @@
     // Do any additional setup after loading the view.
     
     self.title = NSLocalizedString(@"app_name", @"");
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     htmlView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 45)];
     htmlView.backgroundColor = [UIColor whiteColor];

@@ -5,19 +5,31 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>745BFF8E-8CA4-4651-961B-2E76207BC75D</string>
+=======
+	<string>5E942755-7E6E-48E8-8C78-508D1C3A5917</string>
+>>>>>>> FETCH_HEAD
 	<key>IDESourceControlProjectName</key>
 	<string>private_share</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+<<<<<<< HEAD
 		<key>C3640154-9B04-4B1F-A098-BB2DAB124893</key>
+=======
+		<key>80AA76BC-0FD3-4926-960A-447F43124E68</key>
+>>>>>>> FETCH_HEAD
 		<string>https://github.com/yangyangduo/private_share-master.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>private_share.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+<<<<<<< HEAD
 		<key>C3640154-9B04-4B1F-A098-BB2DAB124893</key>
+=======
+		<key>80AA76BC-0FD3-4926-960A-447F43124E68</key>
+>>>>>>> FETCH_HEAD
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,16 +37,26 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
+<<<<<<< HEAD
 	<string>C3640154-9B04-4B1F-A098-BB2DAB124893</string>
+=======
+	<string>80AA76BC-0FD3-4926-960A-447F43124E68</string>
+>>>>>>> FETCH_HEAD
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+<<<<<<< HEAD
 			<string>C3640154-9B04-4B1F-A098-BB2DAB124893</string>
 			<key>IDESourceControlWCCName</key>
 			<string>yoomid</string>
+=======
+			<string>80AA76BC-0FD3-4926-960A-447F43124E68</string>
+			<key>IDESourceControlWCCName</key>
+			<string>private_share-master</string>
+>>>>>>> FETCH_HEAD
 		</dict>
 	</array>
 </dict>
